@@ -1,7 +1,7 @@
 import { renderCityWeather } from './UI'
 
 const displayCityWeather = (cityName, units) => {
-  getCityWeather(cityName, units).then(data => renderCityWeather(data))
+  getCityWeather(cityName, units).then(data => renderCityWeather(data, units))
 }
 
 async function getCityWeather (cityName, units) {
