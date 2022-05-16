@@ -1,3 +1,143 @@
-div {
-  color: green
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+
+/* Variables */
+:root {
+  --clr-white: #fff;
+  --clr-black: #000;
+  --background-img: url('');
+}
+
+
+/* Global styles */
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  box-sizing: border-box;
+  font-family: Montserrat,'Roboto', sans-serif;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: var(--background-img);
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
+  filter: brightness(50%);
+} 
+
+
+/* INPUT SECTION */
+form {
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 20px
+}
+
+input {
+  width: 30%;
+  height: 40px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--clr-black);
+  outline: none;
+  font: inherit
+}
+input:focus {
+  border: 2px solid var(--clr-black)
+}
+button {
+  padding: 7px 20px;
+  font: inherit;
+}
+
+/* MAIN SECTION */
+.main {
+  height: 80%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative
+}
+.card {
+  background-color: rgba(255, 255, 255, .3);
+  margin-top: 50px;
+  padding: 30px;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.left-section {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr;
+  grid-template-rows: 1fr 2fr 6fr;
+  width: 75%;
+}
+.weather-title {
+  grid-column: 1/3;
+  font-size: 1.5rem;
+}
+.city-name {
+  grid-column: 1/3;
+  font-size: 3rem;
+}
+.temp {
+  font-size: 7rem;
+  font-weight: 500;
+}
+.icon .material-icons {
+  font-size: 100px;
+  margin-top: 20px;
+}
+.icon {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.gg-sun {
+  --ggs: 4;
+  position: relative;
+  top: 57px;
+  left: 37px;
+}
+
+
+
+
+.right-section {
+  width: 25%;
+  height: 70%;
+  border-left: 3px solid var(--clr-black);
+  padding-left: 60px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.right {
+  padding: 5px;
+  font-size: 1.3rem;
+}
+.titles {
+  font-size: .7rem;
 }
