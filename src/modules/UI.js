@@ -1,4 +1,3 @@
-import { displayCityWeather } from './logic'
 import { capitalizeFirstLetter, getBackground, getIcon } from './utils'
 
 const cityName = document.querySelector('.city-name')
@@ -9,7 +8,6 @@ const feelsLikeTemp = document.querySelector('.feel-temp')
 const humidity = document.querySelector('.humidity')
 const wind = document.querySelector('.wind')
 const clouds = document.querySelector('.clouds')
-const input = document.querySelector('input')
 
 const renderCityWeather = (data, unit) => {
   try {
@@ -34,43 +32,11 @@ const renderCityWeather = (data, unit) => {
   }
 }
 
-const changeToFarenheit = () => {
-  const city = cityName.textContent.split(',')[0]
-  displayCityWeather(city, 'imperial')
-}
-
-const changeToCelsius = () => {
-  const city = cityName.textContent.split(',')[0]
-  displayCityWeather(city, 'metric')
-}
-
 const renderBackgroundImg = (code) => {
   const backgroundImg = getBackground(code)
   document.documentElement.style.setProperty('--background-img', `url(${backgroundImg})`)
 }
 
-const setBtnListeners = () => {
-  document.querySelector('.search').addEventListener('click', (e) => {
-    e.preventDefault()
-    const units = document.querySelector('.to-farenheit').textContent.split('').reverse()[0]
-    if (units === 'F') {
-      displayCityWeather(input.value, 'metric')
-    } else if (units === 'C') {
-      displayCityWeather(input.value, 'imperial')
-    }
-    input.value = ''
-  })
+const getCityName = () => cityName.textContent.split(',')[0]
 
-  document.querySelector('.to-farenheit').addEventListener('click', (e) => {
-    const unit = e.target.textContent.split('').reverse()[0]
-    if (unit === 'F') {
-      changeToFarenheit()
-      e.target.textContent = 'Display °C'
-    } else if (unit === 'C') {
-      changeToCelsius()
-      e.target.textContent = 'Display °F'
-    }
-  })
-}
-
-export { renderCityWeather, setBtnListeners }
+export { renderCityWeather, getCityName }

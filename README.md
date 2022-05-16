@@ -2,6 +2,5 @@
 
 This is a weather app
 
-
-TODO LIST:
- - Media queries
+TODO: 
+ - Check input and handle it better

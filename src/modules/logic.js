@@ -1,16 +1,21 @@
-import { renderCityWeather } from './UI'
+import { renderCityWeather, getCityName } from './UI'
 
 const displayCityWeather = (cityName, units) => {
-  getCityWeather(cityName, units).then(data => renderCityWeather(data, units))
+  getForecast(cityName, units).then(data => renderCityWeather(data, units))
 }
 
-async function getCityWeather (cityName, units) {
+async function getForecast (cityName, units) {
   try {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=0289ceb6bf189f255d7c1f30b04ec011&units=${units}`, { mode: 'cors' })
-    return await response.json()
+    const data = await response.json()
+    return data
   } catch (e) {
     alert('This city does not exist')
   }
 }
 
-export { displayCityWeather }
+const changeToFarenheit = () => displayCityWeather(getCityName(), 'imperial')
+
+const changeToCelsius = () => displayCityWeather(getCityName(), 'metric')
+
+export { displayCityWeather, changeToCelsius, changeToFarenheit }
