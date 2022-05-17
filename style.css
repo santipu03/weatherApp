@@ -50,12 +50,18 @@ form {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+.input-wr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   gap: 20px
 }
-
 input {
-  width: 30%;
+  width: 100%;
   height: 40px;
   padding: 10px;
   border: 1px solid var(--clr-black);
@@ -71,6 +77,19 @@ input:focus {
   background-color: rgba(255, 255, 255, .4);
   border: none;
   cursor: pointer;
+}
+.error {
+  font-weight: 500;
+  color: #991b1b;
+  background-color: rgba(255, 255, 255, .3);
+  padding: 5px;
+  margin-top: 10px;
+  z-index: -10;
+  visibility: hidden;
+}
+.show {
+  z-index: 10;
+  visibility: visible;
 }
 
 /* MAIN SECTION */
