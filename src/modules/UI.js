@@ -13,7 +13,9 @@ const errorMsg = document.querySelector('.error')
 const renderCityWeather = (data, unit) => {
   try {
     cityName.textContent = `${data.name}, ${data.sys.country}`
-    weatherTitle.textContent = capitalizeFirstLetter(data.weather[0].description)
+    weatherTitle.textContent = capitalizeFirstLetter(
+      data.weather[0].description
+    )
     humidity.textContent = `${data.main.humidity}%`
     clouds.textContent = `${data.clouds.all}%`
     icon.innerHTML = getIcon(data.weather[0].icon)
@@ -43,7 +45,10 @@ const renderErrorMsg = (msg) => {
 
 const renderBackgroundImg = (code) => {
   const backgroundImg = getBackground(code)
-  document.documentElement.style.setProperty('--background-img', `url(${backgroundImg})`)
+  document.documentElement.style.setProperty(
+    '--background-img',
+    `url(${backgroundImg})`
+  )
 }
 
 const getCityName = () => cityName.textContent.split(',')[0]

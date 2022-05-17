@@ -1,10 +1,12 @@
-import { displayCityWeather, changeToFarenheit, changeToCelsius } from './modules/logic'
-
-// Weather api Key 0289ceb6bf189f255d7c1f30b04ec011
+import {
+  displayCityWeather,
+  changeToFarenheit,
+  changeToCelsius
+} from './modules/logic'
 
 // Initial Load
 window.addEventListener('DOMContentLoaded', () => {
-  displayCityWeather('barcelona', 'imperial')
+  displayCityWeather('barcelona', 'metric')
   setBtnListeners()
 })
 
@@ -15,7 +17,10 @@ const setBtnListeners = () => {
 
   document.querySelector('.search').addEventListener('click', (e) => {
     e.preventDefault()
-    const units = document.querySelector('.to-farenheit').textContent.split('').reverse()[0]
+    const units = document
+      .querySelector('.to-farenheit')
+      .textContent.split('')
+      .reverse()[0]
     if (units === 'F') {
       displayCityWeather(input.value, 'metric')
     } else if (units === 'C') {
